@@ -1285,7 +1285,8 @@ html.modal-locked, body.modal-locked {
   background: rgba(255, 255, 255, 0.12);
   border: 2px solid rgba(255, 222, 0, 0.6);
   border-radius: 24px;
-  padding: 2.5rem 3.5rem;
+  padding: 2.2rem 2rem;
+  max-width: min(88vw, 440px);
   text-align: center;
   color: #ffffff;
   display: flex;

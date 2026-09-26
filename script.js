@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "NCT DREAM - 'Candy' Cover",
-      poster: "assets/video_covers/cover_06_candy.webp",
+      poster: "assets/set4/photo_06.webp",
       iframeUrl: "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F813524270000030%2F&show_text=false&width=560&t=0",
       directUrl: "https://www.facebook.com/reel/813524270000030/"
     },
