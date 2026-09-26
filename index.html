@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Món quà tốt nghiệp anh mminhlee gửi bé Nhật Minh.</title>
+
+  <!-- Base64 Fonts: SVN-Aleo, SVN-Haptic, TP-Dopestyle (100% Offline & file:/// Support) -->
+  <link rel="stylesheet" href="fonts.css">
+
+  <!-- Google Fonts: Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- External CDN Libraries -->
+  <script src="https://unpkg.com/lenis@latest/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       BACKGROUND AUDIO PLAYER (AESPA - KISS & TELL)
+       ========================================================================== -->
+  <audio id="bgAudio" src="assets/audio/kissntell_aespa.mp3" loop preload="auto"></audio>
+
+  <!-- Nút Bật/Tắt Nhạc Nền dạng Đĩa Than Mini -->
+  <button class="music-toggle-btn" id="musicToggleBtn" aria-label="Bật/Tắt Nhạc Nền">
+    <div class="vinyl-disc" id="vinylDisc">
+      <div class="vinyl-ring"></div>
+      <div class="vinyl-center"></div>
+    </div>
+    <span class="music-text" id="musicText">Kiss & Tell ♫</span>
+  </button>
+
+  <!-- Huy Hiệu Ngày Tháng 27.09.2026 Chuyển Động Liên Tục -->
+  <div class="floating-date-badge">
+    <span class="grad-cap-anim">🎓</span>
+    <span class="date-text">27.09.2026</span>
+  </div>
+
+  <!-- ==========================================================================
+       SECTION 1: HERO CANON CAMERA ZOOM 
+       ========================================================================== -->
+  <section class="hero-stage" id="heroStage">
+    <!-- Tiêu đề mở đầu đặt chính giữa phía trên máy ảnh, phóng to theo máy ảnh -->
+    <div class="hero-camera-title" id="heroCameraTitle">
+      Món quà tốt nghiệp dành tặng Nhật Minh
+    </div>
+
+    <!-- Khung Máy Ảnh Canon với Màn hình LCD Rỗng -->
+    <div class="camera-hero-wrapper" id="cameraHeroWrapper">
+      <!-- Ảnh mở đầu 20230416 nằm lọt lòng bên trong màn hình LCD với viền mờ êm ái -->
+      <div class="camera-screen-bg" id="cameraScreenBg">
+        <div class="camera-screen-inner" id="cameraScreenInner" style="background-image: url('assets/hero/hero_opening.webp');"></div>
+      </div>
+      
+      <!-- Vỏ máy ảnh Canon với màn hình trong suốt -->
+      <img src="assets/stickers/camera_canon_screen_cutout.webp" alt="Canon Camera" class="camera-cutout-img" id="cameraCutoutImg">
+    </div>
+
+    <!-- Sticker Winter ở góc DƯỚI BÊN TRÁI ban đầu -->
+    <img src="assets/winter/winter_sticker_3.webp" alt="Winter aespa" id="winterHeroSticker" class="sticker winter-sticker motion-float-1 hero-corner-sticker" style="bottom: 4%; left: 4%; width: clamp(140px, 17vw, 210px); --rot: -5deg;">
+    
+    <!-- Sticker Mèo ở góc DƯỚI BÊN PHẢI ban đầu -->
+    <img src="assets/stickers/cat_flower.webp" alt="Mèo Cầm Hoa" id="catHeroSticker" class="sticker motion-sway hero-corner-sticker" style="bottom: 4%; right: 4%; width: clamp(130px, 15vw, 190px); --rot: 6deg;">
+
+    <!-- Khối nội dung Reveal khi cuộn: Bố cục 4 góc thoáng, KHÔNG ĐÈ ẢNH MINH -->
+    <div class="hero-reveal" id="heroReveal">
+      <!-- 1. Sticker Happy Graduation chuyển sang GÓC TRÊN BÊN TRÁI -->
+      <img src="assets/stickers/text_happy_grad.webp" alt="Happy Graduation" class="hero-grad-sticker-corner sticker-wiggle-anim" id="heroGradCorner">
+      
+      <!-- 2. Sticker 2026 Disco chuyển xuống GÓC DƯỚI BÊN PHẢI -->
+      <img src="assets/stickers/disco_2026_horizontal.webp" alt="2026 Disco" class="disco-2026-corner sticker-wiggle-anim" id="heroDiscoCorner">
+      
+      <!-- 3. Hộp chúc mừng baby Nhật Minh ở trung tâm phía dưới -->
+      <div class="hero-message-card" id="heroMsgCard">
+        <!-- Sticker Winter cầm bánh kem thò ra từ góc trên phải của hộp (3D Pop-out) -->
+        <img src="assets/winter/winter_sticker_5.webp" alt="Winter holding cake" class="winter-peeking-cake motion-breathe" id="winterPeekingCake">
+
+        <h1 id="heroMsgTitle">Chào <span>Trần Hoàng Nhật Minh</span></h1>
+        <p id="heroMsgText">Khép lại chặng đường tại HUST đầy kỷ niệm, chúc baby của anh vững bước, toả sáng trên con đường em đã chọn. Hãy rực rỡ như cách em toả sáng trên sân khấu D.O.P nhé!!!</p>
+      </div>
+      
+      <div class="hero-scroll-hint">
+        <span>Cùng ngắm nhìn những kỉ niệm hai đứa mình đã cùng nhau trải qua nha :3</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MODAL: PHOTO LIGHTBOX
+       ========================================================================== -->
+  <div class="photo-lightbox-modal" id="photoLightboxModal">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-card" id="lightboxCard">
+      <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Đóng ảnh">&times;</button>
+      <img id="lightboxImg" src="" alt="Kỷ niệm sắc nét">
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SECTION 2: STORYLINE TRÊN BÀN GỖ 
+       ========================================================================== -->
+  <section class="storyline-stage" id="storylineStage">
+    <!-- Nền bàn làm việc mới độ phân giải gốc cao cấp -->
+    <div class="desk-background" style="background-image: url('assets/bg_desk.jpg');"></div>
+
+    <!-- Tấm thẻ ghi chú thủ công trung tâm (Handmade Kraft Lined Note với ghim và sticker mèo) -->
+    <div class="storyline-note-card set-card-1" id="storylineNoteCard">
+      <!-- Nút ghim / kẹp giấy chân thực ở cạnh trên -->
+      <div class="note-pin" id="notePin"></div>
+      
+      <!-- Sticker mèo đáng yêu gắn ở góc thẻ ghi chú -->
+      <img src="assets/stickers/cat_heart.webp" alt="Cat Sticker" class="note-cat-sticker" id="noteCatSticker">
+      
+      <!-- Nội dung ghi chú kẻ dòng -->
+      <p class="storyline-note-text" id="storyNoteText">Đang tải câu chuyện...</p>
+    </div>
+
+    <!-- Container chứa các thẻ polaroid rải tự nhiên trên bàn -->
+    <div class="storyline-cards-container" id="storylineCardsContainer"></div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: ROTATIONAL VIDEO SHOWCASE 
+       ========================================================================== -->
+  <section class="showcase-stage" id="showcaseStage">
+    <!-- Tiêu đề chính giữa phía trên Section 3 -->
+    <h2 class="showcase-main-title">Những sân khấu đáng nhớ của Minh đối với anhh</h2>
+
+    <!-- Nút Điều Hướng Video -->
+    <button class="showcase-nav-btn prev-btn" id="prevVideoBtn" aria-label="Video trước">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="showcase-nav-btn next-btn" id="nextVideoBtn" aria-label="Video kế">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+
+    <!-- Thẻ Bài Carousel 16:9 Chiều Sâu Điện Ảnh (Không hở viền đen) -->
+    <div class="slider-container"></div>
+
+    <!-- Tiêu đề Video duy nhất (Lược bỏ dòng mô tả phụ) -->
+    <div class="showcase-info">
+      <div class="showcase-counter" id="showcaseCounter">1 / 7</div>
+      <h2 class="video-title" id="videoTitle">Video Tiêu Đề</h2>
+    </div>
+
+    <!-- Sticker Winter Idol góc dưới phải -->
+    <img src="assets/winter/winter_sticker_2.webp" alt="Winter" class="sticker winter-sticker motion-float-1" style="bottom: 4%; right: 4%; width: clamp(85px, 9.5vw, 130px); --rot: 5deg;">
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: FINALE DẢI ẢNH TỰ ĐỘNG TRÔI & BỨC THƯ 
+       ========================================================================== -->
+  <section class="finale-stage" id="finaleStage">
+    <!-- Khối nội dung BÊN TRÁI màn hình (Laptop) / TRUNG TÂM PHÍA TRÊN (Mobile) -->
+    <div class="finale-content-left">
+      <!-- Sticker Happy Graduation to cao nổi bật -->
+      <img src="assets/stickers/text_happy_grad.webp" alt="Happy Graduation" class="finale-grad-sticker-big sticker-wiggle-anim">
+      
+      <!-- Dòng tên Trần Hoàng Nhật Minh xếp gần sát Happy Graduation -->
+      <div class="finale-person-name">Trần Hoàng Nhật Minh</div>
+
+      <!-- Nút mở bí mật: YOUR PỎNHUB 2026 RECAP đặt ngay dưới tên, giữa tên và phần ảnh nhỏ -->
+      <div class="letter-box-finale">
+        <button class="open-letter-btn pornhub-btn" id="openLetterBtn" aria-label="Mở lá thư bí mật">
+          <span class="ph-porn">YOUR PỎN</span>
+          <span class="ph-hub">HUB 2026 RECAP</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dải ảnh trôi vô tận  trải dài từ TRÁI SANG PHẢI TOÀN BỘ WEB (100vw) -->
+    <div class="infinite-slider" id="infiniteSlider"></div>
+  </section>
+
+  <!-- ==========================================================================
+       MODAL: GRADUATION LETTER
+       ========================================================================== -->
+  <div class="letter-modal" id="letterModal" data-lenis-prevent>
+    <div class="letter-paper" id="letterPaper" data-lenis-prevent>
+      <!-- Lỗ đục xoắn ốc sổ tay chân thực bên mép trái -->
+      <div class="notebook-holes" aria-hidden="true">
+        <span class="hole"></span>
+        <span class="hole"></span>
+        <span class="hole"></span>
+        <span class="hole"></span>
+        <span class="hole"></span>
+        <span class="hole"></span>
+        <span class="hole"></span>
+        <span class="hole"></span>
+        <span class="hole"></span>
+        <span class="hole"></span>
+      </div>
+
+      <!-- Sticker trang trí tĩnh trẻ trung xung quanh viền thư -->
+      <img src="assets/winter/winter_sticker_2.webp" alt="Winter" class="letter-deco-sticker deco-winter-top">
+      <img src="assets/stickers/cat_flower.webp" alt="Mèo Cầm Hoa" class="letter-deco-sticker deco-cat-bottom">
+      <img src="assets/stickers/cat_grad.webp" alt="Mèo Tốt Nghiệp" class="letter-deco-sticker deco-cat-grad">
+
+      <!-- Miếng băng dính washi tape vàng ở đầu trang giấy -->
+      <div class="washi-tape"></div>
+
+      <!-- Nút đóng thư -->
+      <button class="letter-close-btn" id="letterCloseBtn" aria-label="Đóng thư">&times;</button>
+      
+      <!-- Tiêu đề thư gửi Nhật Minh -->
+      <div class="letter-header-meme">
+        <div class="meme-subject">
+          <span class="meme-title">Your Pornhub 2026 recap</span>
+          <span class="meme-emoji">😊</span>
+          <span class="meme-tag">Inbox x</span>
+        </div>
+        <div class="letter-meta">Hà Nội &bull; Ngày 27 tháng 09 năm 2026 &bull; từ: mminhlee</div>
+      </div>
+      
+      <!-- Thân lá thư kỷ niệm gửi bé Nhật Minh -->
+      <div class="letter-body">
+        <p class="meme-greeting">Hi Trần Hoàng Nhật Minh,</p>
+        
+        <p class="meme-hook">Nah, just kidding 😊, nhưng vì em đã tò mò bấm vào đọc đến tận đây rồi:</p>
+
+        <p>Thế là cuối cùng ngày này cũng tới, ngày baby của anh chính thức cầm trên tay tấm bằng tốt nghiệp của Đại học Bách Khoa Hà Nội! Vượt qua bao nhiêu mùa đồ án, bao nhiêu deadline ngập đầu để đi đến ngày hôm nay là cả một hành trình siêu đáng tự hào của em rồi đấy.</p>
+        
+        <p>Nhìn lại khoảng thời gian đồng hành cùng nhau dưới mái nhà DOP và cả những ngày tháng sau này, anh thấy mình may mắn vì đã có một người em, một người đồng đội như em sát cánh. Từ những ngày đầu bước vào ban Truyền thông, cùng nhau chạy sân khấu, cùng thức đến 2, 3 giờ sáng để dựng video recap, cho đến những buổi tập mồ hôi ướt đẫm sàn phòng tập C2... em luôn là người mang lại nguồn năng lượng tích cực nhất cho cả team.</p>
+        
+        <p>Đặc biệt là bài nhảy <strong>Candy</strong>, bài mà anh cùng em đồng hành trên sân khấu nhiều nhất. Năng lượng của bài hát ấy cũng hệt như con người em vậy: luôn tươi tắn, toả nắng và ấm áp với mọi người xung quanh.</p>
+        
+        <p>Tốt nghiệp rồi, một chương mới rộng lớn hơn đang mở ra. Anh tin với sự nhiệt huyết, trách nhiệm và tài năng của em, dù ở bất kỳ sân khấu nào của cuộc đời, em cũng sẽ luôn toả sáng rực rỡ nhất.</p>
+        
+        <p>Chúc mừng tốt nghiệp em trai! Cảm ơn em vì những năm tháng thanh xuân tuyệt đẹp cùng anh và DOP, và chắc chắn chúng ta vẫn sẽ còn đồng hành cùng nhau dài dài nữa nhó!</p>
+      </div>
+
+      <div class="letter-sign">
+        <p>Người luôn ủng hộ em</p>
+        <p class="sign-name">Lê Minh</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: VIDEO PLAYER
+       ========================================================================== -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-modal-content">
+      <button class="video-modal-close" id="videoModalClose" aria-label="Đóng video">&times;</button>
+      <div class="video-frame-wrap">
+        <iframe id="videoModalFrame" src="" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

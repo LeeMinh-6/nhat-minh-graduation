@@ -1,0 +1,117 @@
+{
+  "hero": "assets/hero/hero_opening.webp",
+  "stickers": [
+    {
+      "id": "cat_grad",
+      "file": "assets/stickers/cat_grad.webp"
+    },
+    {
+      "id": "flower",
+      "file": "assets/stickers/flower.webp"
+    },
+    {
+      "id": "camera_canon",
+      "file": "assets/stickers/camera_canon.webp"
+    },
+    {
+      "id": "sparkle_decor",
+      "file": "assets/stickers/sparkle_decor.webp"
+    },
+    {
+      "id": "cat_flower",
+      "file": "assets/stickers/cat_flower.webp"
+    },
+    {
+      "id": "disco_2027",
+      "file": "assets/stickers/disco_2027.webp"
+    },
+    {
+      "id": "text_happy_grad",
+      "file": "assets/stickers/text_happy_grad.webp"
+    }
+  ],
+  "winter": [
+    "assets/winter/winter_1.webp",
+    "assets/winter/winter_2.webp",
+    "assets/winter/winter_3.webp",
+    "assets/winter/winter_4.webp",
+    "assets/winter/winter_5.webp"
+  ],
+  "logo": "assets/stickers/logo_dop.webp",
+  "sets": {
+    "set1": {
+      "title": "Giải Thể Thao Sinh Viên Hà Nội 2022",
+      "sub": "Những bước chạy đà đầu tiên cùng DOP",
+      "photos": [
+        "assets/set1/photo_01.webp",
+        "assets/set1/photo_02.webp",
+        "assets/set1/photo_03.webp",
+        "assets/set1/photo_04.webp",
+        "assets/set1/photo_05.webp"
+      ]
+    },
+    "set2": {
+      "title": "Buổi Photoshot DOP",
+      "sub": "Thần thái & Khung hình rực rỡ",
+      "photos": [
+        "assets/set2/photo_01.webp",
+        "assets/set2/photo_02.webp",
+        "assets/set2/photo_03.webp",
+        "assets/set2/photo_04.webp",
+        "assets/set2/photo_05.webp",
+        "assets/set2/photo_06.webp",
+        "assets/set2/photo_07.webp",
+        "assets/set2/photo_08.webp",
+        "assets/set2/photo_09.webp",
+        "assets/set2/photo_10.webp"
+      ]
+    },
+    "set3": {
+      "title": "Phòng Tập, Hoạt Động & Ảnh Troll",
+      "sub": "Nụ cười, mồ hôi & những khoảnh khắc lầy lội",
+      "photos": [
+        "assets/set3/photo_01.webp",
+        "assets/set3/photo_02.webp",
+        "assets/set3/photo_03.webp",
+        "assets/set3/photo_04.webp",
+        "assets/set3/photo_05.webp",
+        "assets/set3/photo_06.webp",
+        "assets/set3/photo_07.webp",
+        "assets/set3/photo_08.webp",
+        "assets/set3/photo_09.webp"
+      ]
+    },
+    "set4": {
+      "title": "Bùng Nổ Sân Khấu Lớn",
+      "sub": "Spotlight rực sáng và tiếng hò reo",
+      "photos": [
+        "assets/set4/photo_01.webp",
+        "assets/set4/photo_02.webp",
+        "assets/set4/photo_03.webp",
+        "assets/set4/photo_04.webp",
+        "assets/set4/photo_05.webp",
+        "assets/set4/photo_06.webp",
+        "assets/set4/photo_07.webp",
+        "assets/set4/photo_08.webp",
+        "assets/set4/photo_09.webp",
+        "assets/set4/photo_10.webp",
+        "assets/set4/photo_11.webp",
+        "assets/set4/photo_12.webp",
+        "assets/set4/photo_13.webp",
+        "assets/set4/photo_14.webp",
+        "assets/set4/photo_15.webp",
+        "assets/set4/photo_16.webp"
+      ]
+    },
+    "set5": {
+      "title": "Anh Em Đồng Đội (Min & Nhật Minh)",
+      "sub": "Hai năm gắn bó bên nhau sau cánh gà",
+      "photos": [
+        "assets/set5/photo_01.webp",
+        "assets/set5/photo_02.webp",
+        "assets/set5/photo_03.webp",
+        "assets/set5/photo_04.webp"
+      ]
+    }
+  }
+}
