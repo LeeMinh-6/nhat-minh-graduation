@@ -87,18 +87,20 @@ document.addEventListener("DOMContentLoaded", () => {
     else playMusic();
   });
 
-  // Tự động kích hoạt phát nhạc trên tương tác đầu tiên của người dùng
-  const autoPlayHandler = () => {
-    if (!isAudioPlaying) {
-      playMusic();
-    }
-    window.removeEventListener("click", autoPlayHandler);
-    window.removeEventListener("scroll", autoPlayHandler);
-    window.removeEventListener("touchstart", autoPlayHandler);
-  };
-  window.addEventListener("click", autoPlayHandler, { once: true });
-  window.addEventListener("scroll", autoPlayHandler, { once: true });
-  window.addEventListener("touchstart", autoPlayHandler, { once: true });
+  // Overlay gợi ý bắt đầu: dismiss khi người dùng click/touch bất kỳ đâu
+  const audioStartOverlay = document.querySelector("#audioStartOverlay");
+
+  function dismissAudioOverlay() {
+    if (!audioStartOverlay) return;
+    audioStartOverlay.classList.add("hidden");
+    setTimeout(() => { audioStartOverlay.style.display = "none"; }, 500);
+    if (!isAudioPlaying) playMusic();
+  }
+
+  if (audioStartOverlay) {
+    audioStartOverlay.addEventListener("click", dismissAudioOverlay, { once: true });
+    audioStartOverlay.addEventListener("touchstart", dismissAudioOverlay, { once: true });
+  }
 
   /* ==========================================================================
      STORYLINE DATA (5 SETS)
@@ -856,30 +858,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ==========================================================================
-     4. VIDEO MODAL (CHỈ SHOW MỖI VIDEO, CÓ LINK TRỰC TIẾP FB & MUTE NHẠC NỀN)
+     4. VIDEO MODAL (Poster + Link thẳng Facebook)
      ========================================================================== */
   const videoModal = document.querySelector("#videoModal");
-  const videoModalFrame = document.querySelector("#videoModalFrame");
+  const videoModalPoster = document.querySelector("#videoModalPoster");
+  const videoModalTitle = document.querySelector("#videoModalTitle");
+  const videoModalLink = document.querySelector("#videoModalLink");
   const videoModalClose = document.querySelector("#videoModalClose");
-  const videoDirectFbLink = document.querySelector("#videoDirectFbLink");
 
   function openVideoModal(item) {
     if (!item) return;
     savedScrollPos = (typeof lenis !== 'undefined' && lenis && typeof lenis.scroll === 'number') ? lenis.scroll : (window.scrollY || window.pageYOffset || 0);
-    videoModalFrame.src = item.iframeUrl;
+    videoModalPoster.src = item.poster;
+    videoModalTitle.textContent = item.name;
+    videoModalLink.href = item.directUrl;
     videoModal.classList.add("active");
     if (typeof lenis !== 'undefined' && lenis) lenis.stop();
-    pauseMusic(); // Tạm dừng nhạc nền để nghe nhạc bài diễn
+    pauseMusic();
   }
 
   function closeVideoModal() {
     videoModal.classList.remove("active");
-    videoModalFrame.src = "";
+    videoModalPoster.src = "";
     if (typeof lenis !== 'undefined' && lenis) {
       lenis.start();
       lenis.scrollTo(savedScrollPos, { immediate: true });
     }
-    playMusic(); // Bật lại nhạc nền ngay khi đóng
+    playMusic();
   }
 
   videoModalClose.addEventListener("click", closeVideoModal);
