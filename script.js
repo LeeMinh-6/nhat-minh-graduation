@@ -1,10 +1,6 @@
-/* ==========================================================================
-   D.O.P BÁCH KHOA • GRADUATION 2026 — TRẦN HOÀNG NHẬT MINH
-   Core Interaction Logic (Kiss & Tell Audio, Camera Zoom, Natural Polaroids, Video Showcase, Infinite Stream)
-   ========================================================================== */
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. KHỞI TẠO LENIS SMOOTH SCROLL
   const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -20,9 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   gsap.registerPlugin(ScrollTrigger, Draggable);
 
-  /* ==========================================================================
-     AUDIO CONTROLLER (AESPA - KISS & TELL) VỚI ĐỘ TO ĐỘNG THEO CUỘN
-     ========================================================================== */
+
   const bgAudio = document.querySelector("#bgAudio");
   const musicToggleBtn = document.querySelector("#musicToggleBtn");
   const vinylDisc = document.querySelector("#vinylDisc");
@@ -87,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
     else playMusic();
   });
 
-  // Overlay gợi ý bắt đầu: dismiss khi người dùng click/touch bất kỳ đâu
   const audioStartOverlay = document.querySelector("#audioStartOverlay");
 
   function dismissAudioOverlay() {
@@ -102,9 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     audioStartOverlay.addEventListener("touchstart", dismissAudioOverlay, { once: true });
   }
 
-  /* ==========================================================================
-     STORYLINE DATA (5 SETS)
-     ========================================================================== */
+
   const storylineSets = [
     {
       note: "Đây là giải đấu đầu tiên mà em đã đại diện HUST thi đấu, dù có nhiều khó khăn trong lúc luyện tập nhưng anh rất ghi nhận sự nỗ lực không ngừng nghỉ, và chúng ta đã đạt giải nhì vô cùng xứng đáng. Tuyệt vời, uống nào!",
@@ -167,7 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
-  // DỮ LIỆU 7 VIDEO BIỂU DIỄN VỚI TÊN DUY NHẤT & LINK TRỰC TIẾP
   const videoList = [
     {
       name: "Video Đầu Tiên Lên Sóng Page DOP",
@@ -213,9 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
-  /* ==========================================================================
-     1. HERO SECTION: ZOOM MÁY ẢNH & TIÊU ĐỀ ĐỒNG BỘ 
-     ========================================================================== */
   const cameraWrapper = document.querySelector("#cameraHeroWrapper");
   const heroCameraTitle = document.querySelector("#heroCameraTitle");
   const winterHero = document.querySelector("#winterHeroSticker");
@@ -277,46 +264,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 0)
     .to("#cameraCutoutImg", { opacity: 0, duration: 0.9, ease: "power2.in" }, 1.1)
     .set("#heroReveal", { opacity: 1, pointerEvents: "auto" }, 1.25)
-    // 1. Pop-up 2 sticker góc: Happy Graduation & Disco 2026
     .fromTo(["#heroGradCorner", "#heroDiscoCorner"], 
       { scale: 0, opacity: 0 }, 
       { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.8)", stagger: 0.1 }, 
       1.3
     )
-    // 2. Pop-up box chào baby Nhật Minh
     .fromTo("#heroMsgCard", 
       { scale: 0.65, opacity: 0 }, 
       { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.6)" }, 
       1.4
     )
-    // 3. Pop-up tiêu đề "Chào Trần Hoàng Nhật Minh"
     .fromTo("#heroMsgTitle", 
       { scale: 0.75, y: 15, opacity: 0 }, 
       { scale: 1, y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.8)" }, 
       1.5
     )
-    // 4. Đoạn văn chúc mừng trồi lên êm ái
     .fromTo("#heroMsgText", 
       { y: 20, opacity: 0 }, 
       { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 
       1.6
     )
-    // 5. Winter thò ra từ nóc hộp cầm bánh kem pop-out 3D siêu đáng yêu
     .fromTo("#winterPeekingCake", 
       { scale: 0, rotation: -12, opacity: 0 }, 
       { scale: 1, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(2.4)" }, 
       1.7
     )
-    // 6. Dòng chữ Cùng ngắm nhìn... pop-in xuất hiện cuối cùng
     .fromTo(".hero-scroll-hint", 
       { scale: 0.75, y: 15, opacity: 0 }, 
       { scale: 1, y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, 
       1.8
     );
 
-  /* ==========================================================================
-     2. STORYLINE SECTION: POLAROID TỰ NHIÊN ĐÚNG TỶ LỆ TRÊN BÀN GỖ 
-     ========================================================================== */
+
   const storyStage = document.querySelector("#storylineStage");
   const storyNoteCard = document.querySelector("#storylineNoteCard");
   const storyNoteText = document.querySelector("#storyNoteText");
@@ -337,7 +316,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeSourceCard = null;
   let isClosingLightbox = false;
 
-  // Hiệu ứng "Nhặt tấm ảnh lên xem": Thẻ bay vút từ vị trí & góc nghiêng trên bàn lên trung tâm
   function openLightboxTactile(sourceCard, photoSrc) {
     if (!photoLightboxModal || !lightboxImg || !lightboxCard) return;
     if (isClosingLightbox) return;
@@ -364,7 +342,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const diffY = startCenterY - targetCenterY;
     const scaleFactor = Math.max(0.15, startRect.width / targetRect.width);
 
-    // Ẩn tạm thời ảnh trên bàn để tạo cảm giác đã được nhấc bổng lên
     gsap.set(sourceCard, { opacity: 0 });
 
     gsap.fromTo(lightboxBackdrop, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" });
@@ -386,7 +363,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Hiệu ứng "Thả lại ảnh xuống bàn": Ảnh bay chuẩn xác trở về vị trí và góc nghiêng ban đầu
   function closeLightboxTactile() {
     if (!photoLightboxModal || !lightboxCard) return;
     if (isClosingLightbox) return;
@@ -461,13 +437,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Chặn lan truyền cuộn chuột/cảm ứng khi đang xem ảnh phóng to
   if (photoLightboxModal) {
     photoLightboxModal.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
     photoLightboxModal.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
   }
 
-  // Tọa độ rải tự nhiên (vô tình bừa bộn nhưng có chủ đích) phủ kín khoảng trống
   function getScatterPositions(setIdx, isMobile) {
     const w = window.innerWidth;
     const h = window.innerHeight;
@@ -510,9 +484,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return scatterOffsets[setIdx % scatterOffsets.length];
     }
 
-    // 5 Layout rải bàn độc bản cho từng set, phủ rộng không gian
     const layouts = [
-      // Set 1: Giải thể thao (5 ảnh)
       [
         { x: cx - 580, y: cy - 270, rot: -8 },
         { x: cx + 290, y: cy - 280, rot: 7 },
@@ -520,7 +492,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { x: cx + 310, y: cy + 40,  rot: -10 },
         { x: cx - 270, y: cy + 180, rot: 4 }
       ],
-      // Set 2: Photoshot visual
       [
         { x: cx - 550, y: cy - 270, rot: 6 },
         { x: cx + 320, y: cy - 260, rot: -7 },
@@ -528,7 +499,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { x: cx + 300, y: cy + 50,  rot: 9 },
         { x: cx + 110, y: cy + 180, rot: -5 }
       ],
-      // Set 3: Hậu trường & tiếng cười
       [
         { x: cx - 560, y: cy - 260, rot: -11 },
         { x: cx + 300, y: cy - 290, rot: 10 },
@@ -536,7 +506,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { x: cx + 330, y: cy + 30,  rot: -7 },
         { x: cx - 210, y: cy + 190, rot: -4 }
       ],
-      // Set 4: Spotlight bùng nổ sân khấu
       [
         { x: cx - 600, y: cy - 260, rot: 8 },
         { x: cx + 290, y: cy - 270, rot: -8 },
@@ -544,7 +513,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { x: cx + 340, y: cy + 60,  rot: 8 },
         { x: cx + 60,  y: cy + 190, rot: 5 }
       ],
-      // Set 5: Min & Nhật Minh
       [
         { x: cx - 540, y: cy - 250, rot: -8 },
         { x: cx + 290, y: cy - 250, rot: 9 },
@@ -566,7 +534,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isMobile && i >= 4) return;
       const pos = positions[i % positions.length];
 
-      // Kích thước phóng to vừa vặn, không để quá nhiều khoảng trống
       let w, h;
       if (photo.orient === "landscape") {
         w = isMobile ? 175 : 310;
@@ -614,7 +581,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // Native Click Listener: Mở Lightbox với hiệu ứng "Nhặt tấm ảnh lên xem & Thả lại xuống bàn"
       card.addEventListener('click', (e) => {
         e.stopPropagation();
         if (isDraggingCard) return;
@@ -636,7 +602,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .to(storyNoteCard, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.2)" });
   }
 
-  // Chuyển set ảnh: Thẻ xuất hiện lần lượt ngẫu nhiên (Random Stagger)
   function animateStoryCards(outgoing, incoming) {
     const tl = gsap.timeline();
     outgoing.forEach(item => {
@@ -675,7 +640,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return tl;
   }
 
-  // Khởi tạo Set 1
   activeCards = createCards(0);
   activeCards.forEach(c => gsap.set(c.el, { x: c.targetX, y: c.targetY, rotation: c.rotation, opacity: 1 }));
   storyNoteText.textContent = storylineSets[0].note;
@@ -721,11 +685,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* ==========================================================================
-     3. VIDEO SHOWCASE CAROUSEL (CHUẨN 16:9 CHIỀU SÂU ĐIỆN ẢNH KHÔNG VIỀN ĐEN)
-     - Trên Laptop: Ẩn nút < >, click trực tiếp ảnh phụ để chuyển, click ảnh chính để xem.
-     - Trên Mobile: Ẩn ảnh phụ, hiện 2 nút < > để chuyển video.
-     ========================================================================== */
   const slider = document.querySelector(".slider-container");
   const videoTitleEl = document.querySelector("#videoTitle");
   const showcaseCounter = document.querySelector("#showcaseCounter");
@@ -810,17 +769,14 @@ document.addEventListener("DOMContentLoaded", () => {
       gsap.from(slideNext, { x: "0vw", duration: 0.45, ease: "power2.out" });
     }
 
-    // Click vào ảnh chính -> Mở video ngay lập tức
     slideCurr.addEventListener("click", () => {
       openVideoModal(videoList[currIdx]);
     });
 
-    // Click vào ảnh phụ bên trái -> chuyển lùi
     slidePrev.addEventListener("click", () => {
       switchToVideo(prevIdx, 'prev');
     });
 
-    // Click vào ảnh phụ bên phải -> chuyển tiến
     slideNext.addEventListener("click", () => {
       switchToVideo(nextIdx, 'next');
     });
@@ -857,9 +813,6 @@ document.addEventListener("DOMContentLoaded", () => {
     onEnterBack: () => setAudioVolume(0.25, 0.8)
   });
 
-  /* ==========================================================================
-     4. VIDEO MODAL (Poster + Link thẳng Facebook)
-     ========================================================================== */
   const videoModal = document.querySelector("#videoModal");
   const videoModalPoster = document.querySelector("#videoModalPoster");
   const videoModalTitle = document.querySelector("#videoModalTitle");
@@ -892,9 +845,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === videoModal) closeVideoModal();
   });
 
-  /* ==========================================================================
-     5. FINALE TỰ ĐỘNG CUỘN VÔ TẬN 
-     ========================================================================== */
   const allPhotosRaw = [];
   storylineSets.forEach(s => allPhotosRaw.push(...s.photos.map(p => p.src)));
 
@@ -975,9 +925,6 @@ document.addEventListener("DOMContentLoaded", () => {
     onEnterBack: () => setAudioVolume(0.85, 0.8)
   });
 
-  /* ==========================================================================
-     6. LÁ THƯ TỐT NGHIỆP: YOUR PỎNHUB 2026 RECAP (CUỘN THƯ 100% MƯỢT MÀ SAFARI)
-     ========================================================================== */
   const openLetterBtn = document.querySelector("#openLetterBtn");
   const letterModal = document.querySelector("#letterModal");
   const letterCloseBtn = document.querySelector("#letterCloseBtn");
@@ -1014,7 +961,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === letterModal) closeLetter();
   });
 
-  // Chặn triệt để hiện tượng Safari truyền sự kiện cuộn xuống trang web bên dưới
   letterModal.addEventListener("wheel", (e) => {
     e.stopPropagation();
     const maxScroll = letterModal.scrollHeight - letterModal.clientHeight;
