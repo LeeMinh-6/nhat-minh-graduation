@@ -888,7 +888,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderInfiniteSlider() {
-    targetScroll += 0.007; // Tự động trôi nhanh, sống động
+    targetScroll += 0.007;
     currentScroll = lerp(currentScroll, targetScroll, 0.08);
 
     infSlides.forEach(slide => {
@@ -932,8 +932,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function openLetter() {
     savedScrollPos = (typeof lenis !== 'undefined' && lenis && typeof lenis.scroll === 'number') ? lenis.scroll : (window.scrollY || window.pageYOffset || 0);
     letterModal.classList.add("active");
-    letterModal.scrollTop = 0; // Luôn bắt đầu từ đầu thư
-    if (typeof lenis !== 'undefined' && lenis) lenis.stop(); // Khóa Lenis để Safari không cuộn trang ngầm
+    letterModal.scrollTop = 0;
+    if (typeof lenis !== 'undefined' && lenis) lenis.stop();
     setAudioVolume(0.35, 0.8);
 
     if (typeof confetti === 'function') {
