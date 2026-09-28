@@ -1,16 +1,13 @@
-/* ==========================================================================
-   D.O.P BÁCH KHOA • GRADUATION 2026 — TRẦN HOÀNG NHẬT MINH
-   Light Theme & Radiant Sunshine Yellow with SVN-Aleo & SVN-Haptic Typography
-   ========================================================================== */
+
 
 :root {
   --bg-light: #fffdf9;
   --bg-paper: #ffffff;
   --bg-warm: #fffef5;
-  --accent-yellow: #ffde00;          /* Vàng tươi rói chuẩn rạng rỡ */
-  --accent-yellow-bright: #ffee33;   /* Vàng nắng bừng sáng */
-  --accent-yellow-light: #fffbe6;    /* Nền vàng kem mịn */
-  --accent-yellow-dark: #d49b00;     /* Vàng cam đậm để đọc text sắc nét trên nền sáng */
+  --accent-yellow: #ffde00;          
+  --accent-yellow-bright: #ffee33;
+  --accent-yellow-light: #fffbe6;   
+  --accent-yellow-dark: #d49b00;   
   --text-dark: #111827;
   --text-medium: #374151;
   --text-muted: #6b7280;
@@ -40,14 +37,11 @@ html, body {
   width: 100%;
 }
 
-/* Không dùng overflow: hidden trên html/body để tránh Safari reset scroll position về 0 */
 html.modal-locked, body.modal-locked {
   touch-action: none !important;
 }
 
-/* ==========================================================================
-   MODAL 0: LIGHTBOX PHÓNG TO ẢNH POLAROID RÕ NÉT 100% (KHÔNG BỊ MỜ ẢNH CHÍNH)
-   ========================================================================== */
+
 .photo-lightbox-modal {
   position: fixed;
   inset: 0;
@@ -129,9 +123,6 @@ html.modal-locked, body.modal-locked {
 }
 
 
-/* ==========================================================================
-   MUSIC PLAYER WIDGET (AESPA - KISS & TELL)
-   ========================================================================== */
 .music-toggle-btn {
   position: fixed;
   top: 1.5rem;
@@ -200,9 +191,6 @@ html.modal-locked, body.modal-locked {
   letter-spacing: 0.02em;
 }
 
-/* ==========================================================================
-   HUY HIỆU NGÀY THÁNG 27.09.2026 (KHÔNG KHUNG, CHUYỂN ĐỘNG LIÊN TỤC)
-   ========================================================================== */
 .floating-date-badge {
   position: fixed;
   top: 1.5rem;
@@ -241,9 +229,6 @@ html.modal-locked, body.modal-locked {
   50% { transform: rotate(-10deg) scale(1.1); }
 }
 
-/* ==========================================================================
-   STICKER IDLE MOTIONS & WIGGLE
-   ========================================================================== */
 @keyframes stickerFloat1 {
   0%, 100% { transform: translateY(0px) rotate(var(--rot, 0deg)); }
   50% { transform: translateY(-10px) rotate(calc(var(--rot, 0deg) + 2deg)); }
@@ -291,9 +276,7 @@ html.modal-locked, body.modal-locked {
   filter: drop-shadow(0 14px 28px rgba(255, 222, 0, 0.38));
 }
 
-/* ==========================================================================
-   SECTION 1: HERO CANON CAMERA ZOOM 
-   ========================================================================== */
+
 .hero-stage {
   height: 100vh;
   width: 100vw;
@@ -338,7 +321,6 @@ html.modal-locked, body.modal-locked {
   filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.16));
 }
 
-/* Khung màn hình LCD Canon */
 .camera-screen-bg {
   position: absolute;
   left: 12.91%;
@@ -351,7 +333,6 @@ html.modal-locked, body.modal-locked {
   background-color: transparent;
 }
 
-/* Lớp ảnh bên trong màn hình LCD: Viền mờ tỏa dần hòa vào nền */
 .camera-screen-inner {
   width: 100%;
   height: 100%;
@@ -363,7 +344,6 @@ html.modal-locked, body.modal-locked {
   mask-image: radial-gradient(ellipse 85% 85% at 50% 48%, black 45%, rgba(0,0,0,0.85) 62%, rgba(0,0,0,0.3) 78%, transparent 92%);
 }
 
-/* Vỏ máy ảnh Canon với màn hình trong suốt */
 .camera-cutout-img {
   position: absolute;
   inset: 0;
@@ -374,7 +354,6 @@ html.modal-locked, body.modal-locked {
   z-index: 4;
 }
 
-/* Khối nội dung Reveal khi Zoom: Bố cục 4 góc thoáng, KHÔNG ĐÈ ẢNH MINH */
 .hero-reveal {
   position: absolute;
   inset: 0;
@@ -385,7 +364,6 @@ html.modal-locked, body.modal-locked {
   pointer-events: none;
 }
 
-/* 1. Happy Graduation ở góc trên bên trái */
 .hero-grad-sticker-corner {
   position: absolute;
   top: 4vh;
@@ -395,7 +373,6 @@ html.modal-locked, body.modal-locked {
   pointer-events: auto;
 }
 
-/* 2. 2026 Disco ở GÓC DƯỚI BÊN PHẢI */
 .disco-2026-corner {
   position: absolute;
   bottom: 8vh;
@@ -405,7 +382,6 @@ html.modal-locked, body.modal-locked {
   pointer-events: auto;
 }
 
-/* 3. Hộp chúc mừng baby Nhật Minh ở trung tâm phía dưới */
 .hero-message-card {
   position: absolute;
   bottom: 7vh;
@@ -423,7 +399,6 @@ html.modal-locked, body.modal-locked {
   pointer-events: auto;
 }
 
-/* Sticker Winter cầm bánh kem thò ra từ góc trên phải của hộp (3D Pop-out, không che chữ Minh) */
 .winter-peeking-cake {
   position: absolute;
   top: -135px;
@@ -454,7 +429,6 @@ html.modal-locked, body.modal-locked {
   line-height: 1.75;
 }
 
-/* Dòng chỉ dẫn cuộn: Bỏ khung đen, giữ chữ vàng cam đậm nét ấm áp */
 .hero-scroll-hint {
   position: absolute;
   bottom: 2.2vh;
@@ -474,9 +448,7 @@ html.modal-locked, body.modal-locked {
   text-shadow: 0 1px 4px rgba(255, 255, 255, 0.95);
 }
 
-/* ==========================================================================
-   SECTION 2: STORYLINE TRÊN BÀN GỖ 
-   ========================================================================== */
+
 .storyline-stage {
   height: 100vh;
   width: 100vw;
@@ -493,11 +465,10 @@ html.modal-locked, body.modal-locked {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 1; /* Nét căng 100% không giảm chất lượng */
+  opacity: 1; 
   z-index: 1;
 }
 
-/* Tấm thẻ ghi chú trung tâm - Giấy kraft có dòng kẻ sổ tay */
 .storyline-note-card {
   position: absolute;
   top: 50%;
@@ -518,7 +489,6 @@ html.modal-locked, body.modal-locked {
   backdrop-filter: blur(12px);
 }
 
-/* Ghim giấy thumbtack / kẹp ghim trang trí */
 .note-pin {
   position: absolute;
   top: -14px;
@@ -532,7 +502,6 @@ html.modal-locked, body.modal-locked {
   border: 2px solid #ffffff;
 }
 
-/* Sticker mèo ở góc ghi chú */
 .note-cat-sticker {
   position: absolute;
   bottom: -25px;
@@ -560,7 +529,6 @@ html.modal-locked, body.modal-locked {
   pointer-events: none;
 }
 
-/* Thẻ bài polaroid theo tỷ lệ ảnh thực tế (không dùng transition transform để tránh xung đột với GSAP) */
 .storyline-card {
   position: absolute;
   top: 0;
@@ -592,9 +560,7 @@ html.modal-locked, body.modal-locked {
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45), 0 0 0 5px var(--accent-yellow) !important;
 }
 
-/* ==========================================================================
-   SECTION 3: ROTATIONAL VIDEO SHOWCASE 
-   ========================================================================== */
+
 .showcase-stage {
   height: 100vh;
   width: 100vw;
@@ -725,7 +691,6 @@ html.modal-locked, body.modal-locked {
   margin-top: 0.4rem;
 }
 
-/* Nút chuyển video: Ẩn trên máy tính (chỉ cần click vào 2 ảnh phụ), chỉ hiện trên mobile */
 .showcase-nav-btn {
   display: none;
   position: absolute;
@@ -755,9 +720,7 @@ html.modal-locked, body.modal-locked {
 .showcase-nav-btn.prev-btn { left: 2rem; }
 .showcase-nav-btn.next-btn { right: 2rem; }
 
-/* ==========================================================================
-   SECTION 4: FINALE DẢI ẢNH TỰ ĐỘNG TRÔI & BỨC THƯ 
-   ========================================================================== */
+
 .finale-stage {
   height: 100vh;
   width: 100vw;
@@ -768,7 +731,6 @@ html.modal-locked, body.modal-locked {
   align-items: center;
 }
 
-/* Cột nội dung bên trái */
 .finale-content-left {
   position: absolute;
   left: 5vw;
@@ -781,7 +743,6 @@ html.modal-locked, body.modal-locked {
   pointer-events: auto;
 }
 
-/* Happy Graduation phóng to rõ nét không còn lề trong suốt */
 .finale-grad-sticker-big {
   width: min(88vw, 480px);
   display: block;
@@ -789,7 +750,6 @@ html.modal-locked, body.modal-locked {
   filter: drop-shadow(0 14px 30px rgba(255, 222, 0, 0.45));
 }
 
-/* Tên Trần Hoàng Nhật Minh xếp sát sạt ngay dưới Happy Graduation */
 .finale-person-name {
   font-family: var(--font-billo);
   font-size: clamp(2rem, 3.4vw, 2.9rem);
@@ -802,7 +762,6 @@ html.modal-locked, body.modal-locked {
   text-shadow: 0 3px 12px rgba(255, 222, 0, 0.4);
 }
 
-/* Khối nút mở bí mật đặt ngay dưới tên, giữa tên và phần ảnh nhỏ */
 .letter-box-finale {
   margin-top: 22px;
   display: inline-block;
@@ -810,7 +769,6 @@ html.modal-locked, body.modal-locked {
   pointer-events: auto;
 }
 
-/* Animation nhấp nhô nhẹ nhàng cho nút recap */
 @keyframes phPlayfulWobble {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
@@ -832,7 +790,6 @@ html.modal-locked, body.modal-locked {
   }
 }
 
-/* Nút bấm YOUR PỎNHUB 2026 RECAP */
 .open-letter-btn.pornhub-btn {
   background: #000000 !important;
   border: 2px solid #2d2d2d !important;
@@ -878,7 +835,6 @@ html.modal-locked, body.modal-locked {
   font-family: Arial, "Helvetica Neue", "Arial Black", Impact, sans-serif !important;
 }
 
-/* Dải trượt ảnh tự động: Trải dài từ TRÁI SANG PHẢI TOÀN BỘ WEB (100vw) */
 .infinite-slider {
   position: absolute;
   top: 0;
@@ -909,10 +865,6 @@ html.modal-locked, body.modal-locked {
   pointer-events: none;
 }
 
-/* ==========================================================================
-   MODAL 1: LÁ THƯ TỐT NGHIỆP TRÊN TỜ GIẤY THỰC (NOTEBOOK TORN PAPER)
-   Container cuộn mượt mà
-   ========================================================================== */
 .letter-modal {
   position: fixed;
   inset: 0;
@@ -970,7 +922,6 @@ html.modal-locked, body.modal-locked {
   pointer-events: auto;
 }
 
-/* Lỗ đục xoắn ốc sổ tay chân thực bên mép trái */
 .notebook-holes {
   position: absolute;
   top: 3.5rem;
@@ -1005,7 +956,6 @@ html.modal-locked, body.modal-locked {
   clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 80%);
 }
 
-/* Sticker trang trí viền thư */
 .letter-deco-sticker {
   position: absolute;
   pointer-events: none;
@@ -1022,7 +972,6 @@ html.modal-locked, body.modal-locked {
   transform: rotate(6deg) !important;
 }
 
-/* Mèo Tốt Nghiệp ở góc dưới bên trái */
 .deco-cat-grad {
   bottom: -28px;
   left: -20px;
@@ -1030,7 +979,6 @@ html.modal-locked, body.modal-locked {
   transform: rotate(-8deg) !important;
 }
 
-/* Mèo Cầm Hoa ở góc dưới bên phải */
 .deco-cat-bottom {
   bottom: -25px;
   right: 35px;
@@ -1039,7 +987,6 @@ html.modal-locked, body.modal-locked {
 }
 
 .letter-modal.active .letter-paper {
-  /* Tối ưu render cho Safari */
 }
 
 .letter-close-btn {
@@ -1069,7 +1016,7 @@ html.modal-locked, body.modal-locked {
 .letter-header-meme {
   margin-bottom: 1.8rem;
   padding-bottom: 0.8rem;
-  padding-right: 65px; /* Giữ cữ đệm an toàn không để sticker Winter đè chữ */
+  padding-right: 65px; 
   border-bottom: 2px dashed #cbd5e1;
 }
 
@@ -1152,9 +1099,6 @@ html.modal-locked, body.modal-locked {
   letter-spacing: 0.04em;
 }
 
-/* ==========================================================================
-   MODAL 2: VIDEO PLAYER (Poster + Facebook Link)
-   ========================================================================== */
 .video-modal {
   position: fixed;
   inset: 0;
@@ -1261,7 +1205,6 @@ html.modal-locked, body.modal-locked {
   transform: scale(1.04);
 }
 
-/* Audio start overlay */
 .audio-start-overlay {
   position: fixed;
   inset: 0;
@@ -1321,9 +1264,7 @@ html.modal-locked, body.modal-locked {
   to { transform: rotate(360deg); }
 }
 
-/* ==========================================================================
-   MOBILE RESPONSIVENESS (< 768px)
-   ========================================================================== */
+
 @media (max-width: 768px) {
   /* Floating header badges */
   .floating-date-badge {
@@ -1337,16 +1278,14 @@ html.modal-locked, body.modal-locked {
     padding: 5px 12px 5px 6px;
   }
 
-  /* SECTION 1: HERO MOBILE */
   .hero-camera-title {
     font-size: 1.25rem;
     top: calc(50% - 46vw - 55px);
   }
   .camera-hero-wrapper {
     width: 90vw;
-    margin-top: -5vh; /* Đẩy máy ảnh / ảnh Minh lên cao hơn để không chạm vào box chữ */
+    margin-top: -5vh; 
   }
-  /* Happy Graduation căn giữa chuẩn xác ở phía trên, không bị lệch */
   .hero-grad-sticker-corner {
     top: 6.5vh !important;
     left: 0 !important;
@@ -1356,7 +1295,6 @@ html.modal-locked, body.modal-locked {
     width: min(70vw, 270px) !important;
     z-index: 30;
   }
-  /* Sticker 2026 Disco căn nằm giữa khoảng hở của ảnh Minh và hộp quà */
   .disco-2026-corner {
     bottom: 33vh !important;
     left: 5vw !important;
@@ -1406,7 +1344,6 @@ html.modal-locked, body.modal-locked {
     flex-shrink: 0;
   }
 
-  /* SECTION 2: STORYLINE MOBILE (Giấy ghi chú thu bé 20%, size chữ nhỏ hơn) */
   .storyline-note-card {
     width: 72% !important;
     max-width: 285px !important;
@@ -1430,7 +1367,6 @@ html.modal-locked, body.modal-locked {
     right: -16px !important;
   }
 
-  /* SECTION 3: VIDEO SHOWCASE MOBILE */
   .showcase-stage {
     position: relative !important;
   }
@@ -1496,7 +1432,6 @@ html.modal-locked, body.modal-locked {
   .showcase-counter {
     text-align: center !important;
   }
-  /* Winter gắn trang nhã ở góc trên video như đang đứng xem Minh biểu diễn */
   .showcase-stage .winter-sticker {
     position: absolute !important;
     top: calc(50% - 25vw - 28px) !important;
@@ -1510,7 +1445,6 @@ html.modal-locked, body.modal-locked {
     pointer-events: none !important;
   }
 
-  /* SECTION 4: FINALE MOBILE (Hạ thấp xuống top: 15vh để giữa bớt trống) */
   .finale-content-left {
     top: 15vh !important;
     left: 50% !important;
@@ -1557,7 +1491,6 @@ html.modal-locked, body.modal-locked {
     height: 54vh;
   }
 
-  /* MODAL LÁ THƯ TRÊN MOBILE */
   .letter-paper {
     padding: 3rem 1.4rem 4rem 1.8rem !important;
   }
